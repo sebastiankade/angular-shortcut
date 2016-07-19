@@ -3,16 +3,9 @@
   'use strict';
 
   angular.module('angular-shortcut').directive('ngShortcut', ['$parse', '$location', 'shortcuts', function ($parse, $location, shortcuts) {
-    var isSet = function (scope, expr) {
-      console.log('Expression', expr, expr === undefined);
-      if (expr === undefined) {
-        return false;
-      }
-      if (expr === '') {
-        return true;
-      }
-      return scope.$eval(expr);
-    };
+    function isSet(attrs, expr) {
+      return attrs[expr] !== undefined || attrs.hasOwnProperty(expr);
+    }
 
     return {
       restrict: 'A',
@@ -30,7 +23,7 @@
             element.trigger(event);
           };
         };
-        if (isSet(scope, attrs.ngShortcutClick)) {
+        if (isSet(attrs, 'ngShortcutClick')) {
           action = function () {
             element.trigger('click');
             element.addClass('active-state');
@@ -38,9 +31,9 @@
               element.removeClass('active-state');
             }, 200);
           };
-        } else if (isSet(scope, attrs.ngShortcutFocus)) {
+        } else if (isSet(attrs, 'ngShortcutFocus')) {
           action = eventAction('focus');
-        } else if (isSet(scope, attrs.ngShortcutFastClick)) {
+        } else if (isSet(attrs, 'ngShortcutFastClick')) {
           // Since we are just triggering (not binding)
           // this works just fine.
           action = eventAction('click');

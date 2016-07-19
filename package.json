@@ -41,7 +41,6 @@
     "xo": "^0.15.1"
   },
   "xo": {
-    "esnext": false,
     "space": true,
     "globals": [
       "angular",
