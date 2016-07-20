@@ -2,7 +2,7 @@
 (function (angular) {
   'use strict';
 
-  angular.module('angular-shortcut').directive('ngShortcut', ['$parse', '$location', 'shortcuts', function ($parse, $location, shortcuts) {
+  angular.module('ng.shortcut').directive('ngShortcut', ['$parse', '$location', 'shortcuts', function ($parse, $location, shortcuts) {
     function isSet(attrs, expr) {
       return attrs[expr] !== undefined || attrs.hasOwnProperty(expr);
     }

@@ -2,7 +2,7 @@
 
 (function (angular) {
   'use strict';
-  angular.module('angular-shortcut').factory('shortcuts', ['$document', function ($document) {
+  angular.module('ng.shortcut').factory('shortcuts', ['$document', function ($document) {
     var overwriteWithout = function (arr, item) {
       for (var i = arr.length; i >= 0; i--) {
         if (arr[i] === item) {

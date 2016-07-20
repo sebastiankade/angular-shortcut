@@ -9,7 +9,7 @@ Shortcuts are english based rather than key codes so you don't have to keep look
 `npm install angular-shortcut`
 
 In your app:
-`angular.module('app', ['angular-shortcut'])`
+`angular.module('app', ['ng.shortcut'])`
 
 ## Usage
 Can be used as a directive on any clickable item.

@@ -1,4 +1,4 @@
 (function (angular) {
   'use strict';
-  angular.module('angular-shortcut', []);
+  angular.module('ng.shortcut', []);
 })(angular);
