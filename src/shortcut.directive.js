@@ -51,8 +51,6 @@
           };
         }
 
-        var passive = scope.$eval(attrs.ngShortcutPassive) || false;
-
         var target;
         if (attrs.ngShortcutTarget) {
           var targetExpression = attrs.ngShortcutTarget;
@@ -65,16 +63,15 @@
           }
         }
 
-        var respectInputs = attrs.ngShortcutRespectInputs === 'true';
-
         for (var k in shortcutKeySets) {
           var keySet = shortcutKeySets[k];
           var shortcut = shortcuts.register({
             keySet: keySet,
             action: action,
             target: target,
-            respectInputs: respectInputs,
-            passive: passive,
+            keepFocus: attrs.ngShortcutKeepFocus ? scope.$eval(attrs.ngShortcutKeepFocus) : false, // defaults to false
+            respectInputs: scope.$eval(attrs.ngShortcutRespectInputs) || false,  // defaults to false
+            passive: scope.$eval(attrs.ngShortcutPassive) || false, // defaults to false
             description: attrs.ngShortcutDescription || ''
           });
 

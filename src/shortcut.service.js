@@ -121,7 +121,9 @@
             return;
           }
 
-          $target.blur();
+          if (!shortcut.keepFocus) {
+            $target.blur();
+          }
 
           // NOTE: the action is responsible for $scope.$apply!
           var r = shortcut.action();
